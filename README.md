@@ -52,7 +52,7 @@ I looked at the distributions of the data and the value counts for the various c
 
 ![alt text](https://github.com/Giats2498/Giats-ds_salary/blob/master/images/salary_by_job_title.PNG "Salary by Position")
 ![alt text](https://github.com/Giats2498/Giats-ds_salary/blob/master/images/positions_by_state.PNG "Job Opportunities by State")
-![alt text](https://github.com/Giats2498/Giats-ds_salary/blob/master/images/salary_by_job_title.PNG "Correlations")
+![alt text](https://github.com/Giats2498/Giats-ds_salary/blob/master/images/correlation_visual.PNG "Correlations")
 
 ## Model Building 
 
