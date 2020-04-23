@@ -44,16 +44,16 @@ lm.fit(X_train, y_train)
 np.mean(cross_val_score(lm,X_train,y_train, scoring = 'neg_mean_absolute_error', cv= 3))
 
 # lasso regression 
-lm_l = Lasso(alpha=.13)
+lm_l = Lasso(alpha=.22)
 lm_l.fit(X_train,y_train)
 np.mean(cross_val_score(lm_l,X_train,y_train, scoring = 'neg_mean_absolute_error', cv= 3))
 
 alpha = []
 error = []
 
-for i in range(1,150):
-    alpha.append(i/150)
-    lml = Lasso(alpha=(i/150))
+for i in range(1,100):
+    alpha.append(i/100)
+    lml = Lasso(alpha=(i/100))
     error.append(np.mean(cross_val_score(lml,X_train,y_train, scoring = 'neg_mean_absolute_error', cv= 3)))
     
 plt.plot(alpha,error)
@@ -89,3 +89,18 @@ mean_absolute_error(y_test,tpred_lml)
 mean_absolute_error(y_test,tpred_rf)
 
 mean_absolute_error(y_test,(tpred_lm+tpred_rf)/2)
+
+#create model file
+import pickle
+pickl = {'model': gs.best_estimator_}
+pickle.dump( pickl, open( 'model_file' + ".p", "wb" ) )
+
+file_name = "model_file.p"
+with open(file_name, 'rb') as pickled:
+    data = pickle.load(pickled)
+    model = data['model']
+
+model.predict(np.array(list(X_test.iloc[1,:])).reshape(1,-1))[0]
+
+#test data for input
+list(X_test.iloc[1,:])
